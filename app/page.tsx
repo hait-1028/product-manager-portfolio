@@ -1,3 +1,6 @@
+import SiteHeader from "./site-header";
+import Image from "next/image";
+
 const profile = {
   name: "黄盛宝",
   role: "产品经理 / 用户运营",
@@ -27,16 +30,24 @@ const strengths = [
   ["05", "AI 提效实践", "把大模型用于需求、方案、文档、知识与数据工作，并通过脱敏和复核保障质量。"],
 ];
 
+const awards = [
+  { year: "2019", title: "“互联网+”校二等奖" },
+  { year: "2020", title: "“互联网+”省三等奖" },
+  { year: "2021", title: "公司优秀新人" },
+  { year: "2022", title: "公司优秀团队" },
+  { year: "2023", title: "公司优秀员工" },
+  { year: "2024", title: "公司优秀员工" },
+].sort((a, b) => Number(a.year) - Number(b.year));
+
+const courses = ["数学分析", "高等代数", "数学建模", "数据结构", "数据库", "计算机网络", "编程基础"];
+
 export default function Home() {
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   return <main>
-    <header className="siteHeader">
-      <a className="brand" href="#top"><span>HS</span><div><b>{profile.name}</b><small>Product Manager Candidate</small></div></a>
-      <nav className="navDock" aria-label="主导航"><a href="#top">首页</a><a href="#education">教育</a><a href="#projects">项目</a><a href="#experience">经历</a><a href="#strengths">优势</a><a href="#honors">荣誉</a></nav>
-      <a className="headerCta" href={`mailto:${profile.email}`}>联系我</a>
-    </header>
+    <SiteHeader name={profile.name} role={profile.role} />
 
     <section className="hero shell" id="top">
+      <div className="heroIntro">
       <div className="heroCopy">
         <p className="eyebrow">Product Manager Portfolio</p>
         <h1>{profile.name}｜<span>产品经理候选人</span></h1>
@@ -45,15 +56,16 @@ export default function Home() {
         <div className="heroActions"><a className="btn primary" href="#projects">查看代表项目</a><a className="btn ghost" href={`${base}/huang-shengbao-resume-2026.pdf`} download>下载简历 PDF</a></div>
       </div>
 
-      <aside className="heroSide">
-        <figure className="heroPhoto"><img src={`${base}/huang-shengbao-portrait.png`} alt="黄盛宝职业头像" /></figure>
-        <div className="interviewerPanel"><div><small>FOR INTERVIEWERS</small><b>按评估任务快速查看</b></div><a href="#strengths"><span>30 秒判断匹配度</span><small>5 个证据说明为什么适合产品经理</small></a><a href="#projects"><span>查看代表项目</span><small>产品决策、交付过程与业务结果</small></a><a href="#experience"><span>查看工作经历</span><small>技术理解与运营管理双重经验</small></a></div>
-      </aside>
+        <figure className="heroPhoto"><Image src={`${base}/huang-shengbao-portrait-2026.png`} alt="黄盛宝个人照片" width={940} height={1670} priority unoptimized /></figure>
+      </div>
 
-      <div className="heroStackWrap"><h2>个人核心能力栈 <span>知识基础 + 专业能力 + 工具使用</span></h2><div className="heroStack">{skillGroups.map(s=><div key={s.title}><b>{s.title}</b><p><em>能力</em>{s.ability}</p><p><em>工具</em>{s.tools}</p></div>)}</div></div>
+      <div className="heroOverview">
+        <div className="heroStackWrap"><h2>个人核心能力栈 <span>知识基础 + 专业能力 + 工具使用</span></h2><div className="heroStack">{skillGroups.map(s=><article key={s.title}><h3>{s.title}</h3><div className="skillDetails"><p><em>能力</em><span>{s.ability}</span></p><p><em>工具</em><span>{s.tools}</span></p></div></article>)}</div></div>
+        <aside className="interviewerPanel" aria-label="面试官快速入口"><div><small>FOR INTERVIEWERS</small><b>按评估任务快速查看</b></div><a href="#strengths"><span>30 秒判断匹配度</span><small>5 个证据说明为什么适合产品经理</small></a><a href="#projects"><span>查看代表项目</span><small>产品决策、交付过程与业务结果</small></a><a href="#experience"><span>查看工作经历</span><small>技术理解与运营管理双重经验</small></a><a href={`${base}/huang-shengbao-resume-2026.pdf`} download><span>下载正式简历</span><small>PDF 文件</small></a></aside>
+      </div>
     </section>
 
-    <section className="section shell" id="education"><div className="sectionHeading"><p>EDUCATION</p><h2>教育背景</h2></div><article className="educationCard"><div className="schoolMark">AHAU</div><div><div className="cardMeta"><span>Bachelor</span><time>2017.09 — 2021.07</time></div><h3>安徽农业大学 · 信息与计算科学</h3><p>本科｜数学分析、高等代数、数学建模、数据结构、数据库、计算机网络与编程基础。</p></div></article></section>
+    <section className="section shell" id="education"><div className="sectionHeading"><p>EDUCATION</p><h2>教育背景</h2></div><article className="educationCard"><div className="schoolLogo"><Image src={`${base}/anhui-agricultural-university-logo.png`} alt="安徽农业大学校徽" width={1080} height={1080} unoptimized /></div><div className="educationDetails"><div className="cardMeta"><span>BACHELOR · 本科</span><span className="educationPeriod"><time dateTime="2017-09">2017.09</time>–<time dateTime="2021-07">2021.07</time></span></div><h3>安徽农业大学理学院</h3><p className="educationDegree">信息与计算科学学士</p><ul className="courseTags" aria-label="主修课程">{courses.map(course=><li key={course}>{course}</li>)}</ul></div></article></section>
 
     <section className="section shell" id="projects"><div className="sectionHeading"><p>SELECTED PROJECTS</p><h2>精选项目</h2></div><div className="projectGrid">{projects.map((p,i)=><article className="projectCard" key={p.title}><div className={`projectCover c${i+1}`}><span>{p.kicker}</span><b>0{i+1}</b></div><div className="projectBody"><div className="cardMeta"><span>{p.kicker}</span><time>{p.period}</time></div><h3>{p.title}</h3><p>{p.summary}</p><strong>{p.result}</strong><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div></div></article>)}</div></section>
 
@@ -61,9 +73,9 @@ export default function Home() {
 
     <section className="section shell" id="strengths"><div className="sectionHeading"><p>WHY I FIT</p><h2>为什么我适合产品经理</h2></div><div className="strengthGrid">{strengths.map(s=><article key={s[0]}><span>{s[0]}</span><h3>{s[1]}</h3><p>{s[2]}</p></article>)}</div></section>
 
-    <section className="section shell" id="honors"><div className="sectionHeading"><p>AWARDS</p><h2>奖项荣誉</h2></div><div className="awardGrid"><article><b>2021</b><span>公司优秀新人</span></article><article><b>2022</b><span>公司优秀团队</span></article><article><b>2023 / 2024</b><span>公司优秀员工</span></article><article><b>2019</b><span>“互联网+”校二等奖</span></article><article><b>2020</b><span>“互联网+”省三等奖</span></article></div></section>
+    <section className="section shell" id="honors"><div className="sectionHeading"><p>AWARDS</p><h2>获奖经历</h2></div><ol className="awardTimeline" aria-label="获奖时间线，由早到晚">{awards.map(award=><li key={award.year}><time dateTime={award.year}>{award.year}</time><span>{award.title}</span></li>)}</ol></section>
 
     <section className="contact" id="contact"><div className="shell"><p>CONTACT</p><h2>我正在寻找产品经理机会，期待与你进一步沟通。</h2><div><a className="btn primary" href={`mailto:${profile.email}`}>{profile.email}</a><a className="btn ghost" href={`tel:${profile.phone}`}>{profile.phone}</a></div></div></section>
-    <footer className="shell"><span>© 2026 {profile.name}</span><span>{profile.role}</span><a href="#top">回到顶部 ↑</a></footer>
+    <footer className="shell"><span>© 2026 {profile.name}</span><span>{profile.role}</span><a href="#top">回到顶部</a></footer>
   </main>;
 }
