@@ -57,7 +57,7 @@ export default function Home() {
         <div className="heroActions"><a className="btn primary" href="#projects">查看代表项目</a><a className="btn ghost" href={`${base}/huang-shengbao-resume-2026.pdf`} download>下载简历 PDF</a></div>
       </div>
 
-        <figure className="heroPhoto"><Image src={`${base}/huang-shengbao-portrait-2026.png`} alt="黄盛宝个人照片" width={940} height={1670} priority unoptimized /></figure>
+        <figure className="heroPhoto"><Image src={`${base}/huang-shengbao-portrait-v4.jpeg`} alt="黄盛宝个人照片" width={1152} height={2048} priority unoptimized /></figure>
       </div>
 
       <div className="heroOverview">
@@ -66,7 +66,7 @@ export default function Home() {
       </div>
     </section>
 
-    <section className="section shell" id="education"><div className="sectionHeading"><p>EDUCATION</p><h2>教育背景</h2></div><article className="educationCard"><div className="schoolLogo"><Image src={`${base}/anhui-agricultural-university-logo.png`} alt="安徽农业大学校徽" width={1080} height={1080} unoptimized /></div><div className="educationDetails"><div className="cardMeta"><span>BACHELOR · 本科</span><span className="educationPeriod"><time dateTime="2017-09">2017.09</time>–<time dateTime="2021-07">2021.07</time></span></div><h3>安徽农业大学理学院</h3><p className="educationDegree">信息与计算科学学士</p><ul className="courseTags" aria-label="主修课程">{courses.map(course=><li key={course}>{course}</li>)}</ul></div></article></section>
+    <section className="section shell" id="education"><div className="sectionHeading"><p>EDUCATION</p><h2>教育背景</h2></div><article className="educationCard"><div className="schoolLogo"><Image src={`${base}/anhui-agricultural-university-logo.png`} alt="安徽农业大学校徽" width={1080} height={1080} unoptimized /></div><div className="educationDetails"><div className="cardMeta"><span>BACHELOR · 本科</span><span className="educationPeriod"><time dateTime="2017-09">2017.09</time>–<time dateTime="2021-07">2021.07</time></span></div><h3>安徽农业大学·理学院</h3><p className="educationDegree">信息与计算科学学士·GPA3.8</p><ul className="courseTags" aria-label="主修课程">{courses.map(course=><li key={course}>{course}</li>)}</ul></div></article></section>
 
     <section className="section shell" id="projects"><div className="sectionHeading"><p>SELECTED PROJECTS</p><h2>精选项目</h2></div><div className="projectGrid">{projects.map((p,i)=><article className="projectCard" key={p.title}><div className={`projectCover c${i+1}`}><span>{p.kicker}</span><b>0{i+1}</b></div><div className="projectBody"><div className="cardMeta"><span>{p.kicker}</span><time>{p.period}</time></div><h3>{p.title}</h3><p>{p.summary}</p><strong>{p.result}</strong><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div></div></article>)}</div></section>
 
