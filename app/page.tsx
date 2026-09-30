@@ -51,7 +51,8 @@ export default function Home() {
       <div className="heroCopy">
         <p className="eyebrow">Product Manager Portfolio</p>
         <h1>{profile.name}｜<span>产品经理候选人</span></h1>
-        <p className="heroLede">5 年+ To B / To G 产品与用户运营经验。覆盖产品规划、需求分析、原型设计、数据运营、售前解决方案、项目交付与团队管理。</p>
+        <p className="heroLede">5年+To B / To G 产品设计与用户运营经验。熟悉产品全生命周期管理，具备技术研发与项目管理实战经验，拥有较强的需求洞察、产品规划及跨团队协同能力。</p>
+        <p className="heroLede">持续关注 AI 技术在真实业务场景中的产品化落地，具备用户需求分析、产品方案设计、数据驱动迭代及项目推进能力，拥有 AI 项目实战经验，熟练应用各类 AI 提效工具，能够将大模型能力与业务需求结合，推动 AI 能力转化为可落地、可评估、可持续迭代并具备商业价值的产品方案。</p>
         <div className="proofStrip"><span><strong>1000万+</strong>项目合同额</span><span><strong>10万+</strong>服务用户</span><span><strong>5年+</strong>产品运营</span></div>
         <div className="heroActions"><a className="btn primary" href="#projects">查看代表项目</a><a className="btn ghost" href={`${base}/huang-shengbao-resume-2026.pdf`} download>下载简历 PDF</a></div>
       </div>
