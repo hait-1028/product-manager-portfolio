@@ -1,5 +1,6 @@
 import SiteHeader from "./site-header";
 import Image from "next/image";
+import ProjectDetails from "./project-details";
 
 const profile = {
   name: "黄盛宝",
@@ -16,10 +17,11 @@ const skillGroups = [
 ];
 
 const projects = [
-  { kicker: "省级数字化平台", title: "安徽省公安厅警用装备智能管理项目", period: "2022.01 — 至今", summary: "规划警用装备全生命周期数字化管理平台，统筹需求分析、原型设计、产品迭代、培训与全省运营。", result: "合同额超千万元 · 服务用户超 10 万", tags: ["产品规划", "用户运营", "数据分析"], demoUrl: "https://hait-1028.github.io/police-equipment-demo/" },
-  { kicker: "物联网智能仓储", title: "合肥市、曲靖市警用装备智能化仓库", period: "2023.06 — 2025.12", summary: "集成机器人、电子标签、视频监控、温湿度和水浸报警能力，推进软硬件一体化交付与体验优化。", result: "跨部门交付 · 场景持续迭代", tags: ["IoT", "项目交付", "场景设计"] },
-  { kicker: "公务用车平台", title: "安徽省、云南省地市公务用车项目", period: "2021.10 — 2023.03", summary: "围绕“全省一张网”梳理监督管理、用户服务、跨部门调度和执法执勤需求，输出解决方案与开发计划。", result: "跨区域平台 · 长周期运营", tags: ["To G", "解决方案", "客户运营"] },
-  { kicker: "企业综合服务", title: "淮河能源集团行政服务综合管理平台", period: "2021.07 — 2022.12", summary: "覆盖公务用车、接待、办公用房、智慧食堂、门禁与停车位，负责功能规划、原型设计和需求全流程管理。", result: "多业务融合 · 按期高质量交付", tags: ["To B", "原型设计", "资源协调"] },
+  { kicker: "省级数字化平台", title: "安徽省公安厅警用装备智能管理项目", period: "2022.01 — 至今", summary: "规划警用装备全生命周期数字化管理平台，统筹需求分析、原型设计、产品迭代、培训与全省运营。", result: "合同额超千万元 · 服务用户超 10 万", tags: ["产品规划", "用户运营", "数据分析"], cover: "police-equipment.jpg", coverAlt: "警用装备智能管理平台工作台", demoUrl: "https://hait-1028.github.io/police-equipment-demo/", details: ["业务场景：省级警用装备全生命周期管理。", "负责工作：需求分析、原型设计、产品迭代、培训与全省运营。", "项目成果：合同额超千万元，服务用户超 10 万；Demo 展示已上传的静态页面。"] },
+  { kicker: "资产全生命周期管理", title: "资产管理系统", period: "2026.03–2026.06", summary: "围绕资产入库、派发、借用、维保与处置构建管理闭环，结合 RFID 盘点和移动端，支持多角色协同与资产追溯。", result: "覆盖资产管理业务闭环 · Web 与移动端原型", tags: ["To B", "产品设计", "RFID 盘点"], cover: "asset-management.png", coverAlt: "资产管理系统工作台与资产统计图表", demoUrl: "https://hait-1028.github.io/", details: ["业务场景：单位资产全生命周期管理，支持单位管理员、部门管理员与普通用户。", "核心功能：资产清单、入库、派发、借用、维保、处置、编码管理与 RFID 盘点。", "项目展示：已上传的 Web 静态网页提供工作台、业务页面与 PRD；移动端覆盖个人资产和盘点采集。"] },
+  { kicker: "物联网智能仓储", title: "合肥市、曲靖市警用装备智能化仓库", period: "2023.06 — 2025.12", summary: "集成机器人、电子标签、视频监控、温湿度和水浸报警能力，推进软硬件一体化交付与体验优化。", result: "跨部门交付 · 场景持续迭代", tags: ["IoT", "项目交付", "场景设计"], cover: "smart-warehouse.svg", coverAlt: "机器人、仓储货架与物联网感知的场景示意", details: ["业务场景：合肥市、曲靖市警用装备智能化仓库。", "集成能力：机器人、电子标签、视频监控、温湿度和水浸报警。", "负责工作：推进软硬件一体化交付与体验优化，协调跨部门工作与场景迭代。"] },
+  { kicker: "公务用车平台", title: "安徽省、云南省地市公务用车项目", period: "2021.10 — 2023.03", summary: "围绕“全省一张网”梳理监督管理、用户服务、跨部门调度和执法执勤需求，输出解决方案与开发计划。", result: "跨区域平台 · 长周期运营", tags: ["To G", "解决方案", "客户运营"], cover: "vehicle-platform.svg", coverAlt: "跨区域车辆调度与路线连接的场景示意", details: ["业务场景：安徽省、云南省地市公务用车管理。", "核心需求：监督管理、用户服务、跨部门调度与执法执勤。", "负责工作：围绕全省一张网输出解决方案与开发计划，支持跨区域平台的长期运营。"] },
+  { kicker: "企业综合服务", title: "淮河能源集团行政服务综合管理平台", period: "2021.07 — 2022.12", summary: "覆盖公务用车、接待、办公用房、智慧食堂、门禁与停车位，负责功能规划、原型设计和需求全流程管理。", result: "多业务融合 · 按期高质量交付", tags: ["To B", "原型设计", "资源协调"], cover: "enterprise-services.svg", coverAlt: "企业园区与行政服务模块的场景示意", details: ["业务场景：淮河能源集团行政服务综合管理。", "功能范围：公务用车、接待、办公用房、智慧食堂、门禁与停车位。", "负责工作：功能规划、原型设计与需求全流程管理，协调资源推动按期交付。"] },
 ];
 
 const strengths = [
@@ -68,7 +70,23 @@ export default function Home() {
 
     <section className="section shell" id="education"><div className="sectionHeading"><p>EDUCATION</p><h2>教育背景</h2></div><article className="educationCard"><div className="schoolLogo"><Image src={`${base}/anhui-agricultural-university-logo.png`} alt="安徽农业大学校徽" width={1080} height={1080} unoptimized /></div><div className="educationDetails"><div className="cardMeta"><span>BACHELOR · 本科</span><span className="educationPeriod"><time dateTime="2017-09">2017.09</time>–<time dateTime="2021-07">2021.07</time></span></div><h3>安徽农业大学·理学院</h3><p className="educationDegree">信息与计算科学学士·GPA3.8</p><ul className="courseTags" aria-label="主修课程">{courses.map(course=><li key={course}>{course}</li>)}</ul></div></article></section>
 
-    <section className="section shell" id="projects"><div className="sectionHeading"><p>SELECTED PROJECTS</p><h2>精选项目</h2></div><div className="projectGrid">{projects.map((p,i)=><article className="projectCard" key={p.title}><div className={`projectCover c${i+1}`}><span>{p.kicker}</span><b>0{i+1}</b></div><div className="projectBody"><div className="cardMeta"><span>{p.kicker}</span><time>{p.period}</time></div><h3>{p.title}</h3><p>{p.summary}</p><strong>{p.result}</strong><div className="projectFooter"><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div>{p.demoUrl && <a className="demoLink" href={p.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`${p.title}：Open Demo（新标签页）`}>Open Demo <span aria-hidden="true">↗</span></a>}</div></div></article>)}</div></section>
+    <section className="section shell" id="projects">
+      <div className="sectionHeading projectsHeading"><h2>精选项目</h2><p>SELECTED PROJECTS</p></div>
+      <div className="projectGrid">{projects.map(p=><article className="projectCard" key={p.title}>
+        <div className="projectCover"><Image src={`${base}/projects/${p.cover}`} alt={p.coverAlt} width={800} height={450} unoptimized /></div>
+        <div className="projectBody">
+          <div className="projectCategory">{p.kicker}</div>
+          <h3>{p.title}</h3><time className="projectPeriod">{p.period}</time>
+          <p className="projectSummary">{p.summary}</p>
+          <strong className="projectResult">关键结果：{p.result}</strong>
+          <div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div>
+          <div className="projectFooter">
+            <ProjectDetails title={p.title} period={p.period} summary={p.summary} details={p.details} demoUrl={p.demoUrl} />
+            {p.demoUrl && <a className="demoLink" href={p.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`${p.title}：Open Demo（新标签页）`}>Open Demo <span aria-hidden="true">↗</span></a>}
+          </div>
+        </div>
+      </article>)}</div>
+    </section>
 
     <section className="section shell" id="experience"><div className="sectionHeading"><p>EXPERIENCE</p><h2>工作经历</h2></div><div className="timeline"><article><time>2021.05 — 至今</time><div className="timelineContent"><h3>中科美络科技股份有限公司</h3><h4>产品经理 / 用户运营部门经理</h4><ul><li><b>产品规划与落地：</b>制定产品定位、路线图和迭代计划，推动产品从 0 到 1 探索、从 1 到 N 复制。</li><li><b>需求与产品设计：</b>负责用户访谈、业务梳理、竞品调研、PRD、原型及流程设计。</li><li><b>数据驱动运营：</b>使用 Metabase、Quick BI 建立分析模型，持续监测使用与用户行为。</li><li><b>解决方案与交付：</b>承担重点项目售前咨询、方案书、产品演示和培训，统筹省级项目运营。</li></ul></div></article></div></section>
 
